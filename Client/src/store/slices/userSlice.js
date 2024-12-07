@@ -91,7 +91,7 @@ export const register = (data) => async (dispatch) => {
   dispatch(userSlice.actions.registerRequest());
   try {
     const response = await axios.post(
-      "http://auction-portal-app.vercel.app/user/register",
+      "http://auction-portal-app1.vercel.app/user/register",
       data,
       {
         withCredentials: true,
@@ -112,7 +112,7 @@ export const login = (data) => async (dispatch) => {
   dispatch(userSlice.actions.loginRequest());
   try {
     const response = await axios.post(
-      "http://auction-portal-app.vercel.app/user/login",
+      "http://auction-portal-app1.vercel.app/user/login",
       data,
       {
         withCredentials: true,
@@ -132,7 +132,7 @@ export const login = (data) => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   try {
     const response = await axios.get(
-      "http://auction-portal-app.vercel.app/user/logout",
+      "http://auction-portal-app1.vercel.app/user/logout",
       {
         withCredentials: true,
       }
@@ -152,7 +152,7 @@ export const fetchUser = () => async (dispatch) => {
   console.log("Amir");
   try {
     const response = await axios.get(
-      "http://auction-portal-app.vercel.app/user/me",
+      "http://auction-portal-app1.vercel.app/user/me",
       {
         withCredentials: true,
       }
@@ -173,7 +173,7 @@ export const fetchLeaderboard = () => async (dispatch) => {
   dispatch(userSlice.actions.fetchLeaderboardRequest());
   try {
     const response = await axios.get(
-      "http://auction-portal-app.vercel.app/user/leaderboard",
+      "http://auction-portal-app1.vercel.app/user/leaderboard",
       {
         withCredentials: true,
       }
