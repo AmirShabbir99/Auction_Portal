@@ -14,11 +14,11 @@ import { endedAuctionCron } from "./automation/endedAuctionCorn.js";
 import verifyCommissionCron from "./automation/verifyCommissionCorn.js";
 
 dotenv.config();
-
+// http://auction-portal-bamd.vercel.app
 const app = express();
 app.use(
   cors({
-    origin: [process.env.FRONTEND_URL],
+    origin: ["http://auction-portal-bamd.vercel.app"],
     methods: ["GET", "PUT", "POST", "PATCH", "DELETE"],
     credentials: true,
   })
