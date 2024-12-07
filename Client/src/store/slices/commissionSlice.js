@@ -24,14 +24,14 @@ export const postCommissionProof = (data) => async (dispatch) => {
   dispatch(commissionSlice.actions.postCommissionProofRequest());
   try {
     const response = await axios.post(
-      "http://localhost:8000/commission/proof",
+      "http://auction-portal-app.vercel.app/commission/proof",
       data,
       {
         withCredentials: true,
         headers: { "Content-Type": "multipart/form-data" },
       }
     );
-    
+
     dispatch(commissionSlice.actions.postCommissionProofSuccess());
     toast.success(response.data.message);
   } catch (error) {

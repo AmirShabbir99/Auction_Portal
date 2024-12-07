@@ -91,7 +91,7 @@ export const register = (data) => async (dispatch) => {
   dispatch(userSlice.actions.registerRequest());
   try {
     const response = await axios.post(
-      "http://localhost:8000/user/register",
+      "http://auction-portal-app.vercel.app/user/register",
       data,
       {
         withCredentials: true,
@@ -112,7 +112,7 @@ export const login = (data) => async (dispatch) => {
   dispatch(userSlice.actions.loginRequest());
   try {
     const response = await axios.post(
-      "http://localhost:8000/user/login",
+      "http://auction-portal-app.vercel.app/user/login",
       data,
       {
         withCredentials: true,
@@ -131,9 +131,12 @@ export const login = (data) => async (dispatch) => {
 
 export const logout = () => async (dispatch) => {
   try {
-    const response = await axios.get("http://localhost:8000/user/logout", {
-      withCredentials: true,
-    });
+    const response = await axios.get(
+      "http://auction-portal-app.vercel.app/user/logout",
+      {
+        withCredentials: true,
+      }
+    );
     dispatch(userSlice.actions.logoutSuccess());
     toast.success(response.data.message);
     dispatch(userSlice.actions.clearAllErrors());
@@ -148,9 +151,12 @@ export const fetchUser = () => async (dispatch) => {
   dispatch(userSlice.actions.fetchUserRequest());
   console.log("Amir");
   try {
-    const response = await axios.get("http://localhost:8000/user/me", {
-      withCredentials: true,
-    });
+    const response = await axios.get(
+      "http://auction-portal-app.vercel.app/user/me",
+      {
+        withCredentials: true,
+      }
+    );
     console.log("Amir");
     dispatch(userSlice.actions.fetchUserSuccess(response.data.user));
     console.log("Amir");
@@ -166,9 +172,12 @@ export const fetchUser = () => async (dispatch) => {
 export const fetchLeaderboard = () => async (dispatch) => {
   dispatch(userSlice.actions.fetchLeaderboardRequest());
   try {
-    const response = await axios.get("http://localhost:8000/user/leaderboard", {
-      withCredentials: true,
-    });
+    const response = await axios.get(
+      "http://auction-portal-app.vercel.app/user/leaderboard",
+      {
+        withCredentials: true,
+      }
+    );
     dispatch(
       userSlice.actions.fetchLeaderboardSuccess(response.data.leaderboard)
     );
