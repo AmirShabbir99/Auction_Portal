@@ -7,7 +7,7 @@ import {
   removeFromAuction,
   republishItem,
 } from "../Controller/auctionController.js";
-import { isAuthenticated, isAuthorized } from "../Middleware/auth.js";
+import { isAuthenticated, isAuthorized } from "../Middleware/Auth.js";
 import { trackCommissionStatus } from "../Middleware/trackCommissionStatus.js";
 
 const router = express.Router();

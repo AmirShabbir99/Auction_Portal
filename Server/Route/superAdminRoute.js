@@ -1,5 +1,5 @@
 import express from "express";
-import { isAuthenticated, isAuthorized } from "../Middleware/auth.js";
+import { isAuthenticated, isAuthorized } from "../Middleware/Auth.js";
 import {
   deleteAuctionItem,
   deletePaymentProof,
