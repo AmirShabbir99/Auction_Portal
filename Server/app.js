@@ -18,7 +18,7 @@ dotenv.config();
 const app = express();
 app.use(
   cors({
-    origin: ["http://auction-portal-bamd.vercel.app"],
+    origin: ["https://auction-portal-bamd.vercel.app"],
     methods: ["GET", "PUT", "POST", "PATCH", "DELETE"],
     credentials: true,
   })
