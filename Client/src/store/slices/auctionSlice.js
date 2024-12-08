@@ -90,7 +90,7 @@ export const getAllAuctionItems = () => async (dispatch) => {
   dispatch(auctionSlice.actions.getAllAuctionItemRequest());
   try {
     const response = await axios.get(
-      "http://auction-portal-app1.vercel.app/auctionitem/allitems",
+      "http://auction-portal-blue.vercel.app/auctionitem/allitems",
       { withCredentials: true }
     );
     dispatch(
@@ -108,7 +108,7 @@ export const getMyAuctionItems = () => async (dispatch) => {
   dispatch(auctionSlice.actions.getMyAuctionsRequest());
   try {
     const response = await axios.get(
-      "http://auction-portal-app1.vercel.app/auctionitem/myitems",
+      "http://auction-portal-blue.vercel.app/auctionitem/myitems",
       { withCredentials: true }
     );
     dispatch(auctionSlice.actions.getMyAuctionsSuccess(response.data.items));
@@ -124,7 +124,7 @@ export const getAuctionDetail = (id) => async (dispatch) => {
   dispatch(auctionSlice.actions.getAuctionDetailRequest());
   try {
     const response = await axios.get(
-      `http://auction-portal-app1.vercel.app/auctionitem/auction/${id}`,
+      `http://auction-portal-blue.vercel.app/auctionitem/auction/${id}`,
       { withCredentials: true }
     );
     dispatch(auctionSlice.actions.getAuctionDetailSuccess(response.data));
@@ -140,7 +140,7 @@ export const createAuction = (data) => async (dispatch) => {
   dispatch(auctionSlice.actions.createAuctionRequest());
   try {
     const response = await axios.post(
-      "http://auction-portal-app1.vercel.app/auctionitem/create",
+      "http://auction-portal-blue.vercel.app/auctionitem/create",
       data,
       {
         withCredentials: true,
@@ -162,7 +162,7 @@ export const republishAuction = (id, data) => async (dispatch) => {
   dispatch(auctionSlice.actions.republishItemRequest());
   try {
     const response = await axios.put(
-      `http://auction-portal-app1.vercel.app/auctionitem/item/republish/${id}`,
+      `http://auction-portal-blue.vercel.app/auctionitem/item/republish/${id}`,
       data,
       {
         withCredentials: true,
@@ -186,7 +186,7 @@ export const deleteAuction = (id) => async (dispatch) => {
   dispatch(auctionSlice.actions.deleteAuctionItemRequest());
   try {
     const response = await axios.delete(
-      `http://auction-portal-app1.vercel.app/auctionitem/delete/${id}`,
+      `http://auction-portal-blue.vercel.app/auctionitem/delete/${id}`,
       {
         withCredentials: true,
       }
