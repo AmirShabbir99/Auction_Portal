@@ -26,7 +26,7 @@ export const placeBid = (id, data) => async (dispatch) => {
 
   try {
     const response = await axios.post(
-      `http://auction-portal-blue.vercel.app/bid/place/${id}`,
+      `https://auction-portal-blue.vercel.app/bid/place/${id}`,
       data,
       {
         withCredentials: true,
