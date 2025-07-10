@@ -3,62 +3,76 @@ import { useSelector } from "react-redux";
 
 const Leaderboard = () => {
   const { loading, leaderboard } = useSelector((state) => state.user);
+
+  const getRankIcon = (index) => {
+    const rank = index + 1;
+    if (rank === 1) return "🥇";
+    if (rank === 2) return "🥈";
+    if (rank === 3) return "🥉";
+    return `#${rank}`;
+  };
+
   return (
-    <>
-      <section className="w-full ml-0 m-0 h-fit px-5 pt-20 lg:pl-[320px] flex flex-col">
-        {loading ? (
-          <Spinner />
-        ) : (
-          <>
-            <div className="flex flex-col min-[340px]:flex-row min-[340px]:gap-2 mb-5">
-              <h1
-                className={`text-[#8EC5FC] text-2xl font-bold mb-2 min-[480px]:text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl`}
-              >
-                Bidders Leaderboard
-              </h1>
-            </div>
-            <div className="overflow-x-auto">
-              <table className="min-w-full bg-white border my-5 border-gray-300">
-                <thead>
-                  <tr>
-                    <th className="py-2 px-4 text-left">Profile Pic</th>
-                    <th className="py-2 px-4 text-left">Username</th>
-                    <th className="py-2 px-4 text-left">Bid Expenditure</th>
-                    <th className="py-2 px-4 text-left">Auctions Won</th>
-                  </tr>
-                </thead>
-                <tbody className="text-gray-700">
-                  {leaderboard.slice(0, 100).map((element, index) => {
-                    return (
-                      <tr
-                        key={element._id}
-                        className="border-b border-gray-300"
-                      >
-                        <td className="flex gap-2 items-center py-2 px-4">
-                          <span className="text-stone-400 font-semibold text-xl w-7 hidden sm:block">
-                            {index + 1}
-                          </span>
-                          <span>
-                            <img
-                              src={element.profileImage?.url}
-                              alt={element.username}
-                              className="h-12 w-12 object-cover rounded-full"
-                            />
-                          </span>
-                        </td>
-                        <td className="py-2 px-4">{element.userName}</td>
-                        <td className="py-2 px-4">{element.moneySpent}</td>
-                        <td className="py-2 px-4">{element.auctionsWon}</td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-            </div>
-          </>
-        )}
-      </section>
-    </>
+    <section className="w-full ml-0 px-5 pt-20 lg:pl-[320px] flex flex-col min-h-screen">
+      {loading ? (
+        <Spinner />
+      ) : (
+        <>
+          <div className="mb-10">
+            <h1 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#8EC5FC] to-[#E0C3FC]">
+              🏆 Bidders Leaderboard
+            </h1>
+            <p className="text-gray-500 mt-2 text-lg">
+              Top 100 most active and competitive bidders
+            </p>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="min-w-full border-collapse">
+              <thead>
+                <tr className="bg-gradient-to-r from-[#F8FAFC] to-[#EEF2FF] text-gray-600 text-sm uppercase tracking-wider">
+                  <th className="py-3 px-6 text-left rounded-tl-lg">Rank</th>
+                  <th className="py-3 px-6 text-left">Profile</th>
+                  <th className="py-3 px-6 text-left">Username</th>
+                  <th className="py-3 px-6 text-left">Bid Expenditure</th>
+                  <th className="py-3 px-6 text-left rounded-tr-lg">Auctions Won</th>
+                </tr>
+              </thead>
+              <tbody>
+                {leaderboard.slice(0, 100).map((user, index) => {
+                  return (
+                    <tr
+                      key={user._id}
+                      className="bg-white shadow-md hover:shadow-xl transition duration-300 transform hover:scale-[1.01] border-b border-gray-200 rounded-lg"
+                    >
+                      <td className="py-4 px-6 font-bold text-[#8EC5FC] text-lg">
+                        {getRankIcon(index)}
+                      </td>
+                      <td className="py-4 px-6">
+                        <img
+                          src={user.profileImage?.url}
+                          alt={user.userName}
+                          className={`h-12 w-12 object-cover rounded-full border-2 ${
+                            index === 0
+                              ? "border-yellow-400"
+                              : "border-gray-300"
+                          }`}
+                        />
+                      </td>
+                      <td className="py-4 px-6 font-medium text-gray-700">
+                        {user.userName}
+                      </td>
+                      <td className="py-4 px-6 text-gray-600">Rs. {user.moneySpent}</td>
+                      <td className="py-4 px-6 text-gray-600">{user.auctionsWon}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
+    </section>
   );
 };
 
