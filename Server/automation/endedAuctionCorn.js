@@ -6,7 +6,7 @@ import Bid from "../Model/bidModel.js";
 import { sendEmail } from "../utils/sendEmail.js";
 
 export const endedAuctionCron = () => {
-  cron.schedule("*/1 * * * *", async () => {
+  cron.schedule("*/2 * * * *", async () => {
     const now = new Date();
     console.log("Cron for ended auction running...");
     const endedAuctions = await Auction.find({
