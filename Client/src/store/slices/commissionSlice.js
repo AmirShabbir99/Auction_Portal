@@ -24,7 +24,7 @@ export const postCommissionProof = (data) => async (dispatch) => {
   dispatch(commissionSlice.actions.postCommissionProofRequest());
   try {
     const response = await axios.post(
-      "https://auction-portal-blue.vercel.app/commission/proof",
+      `${import.meta.env.VITE_BACKEND_URL}/commission/proof`,
       data,
       {
         withCredentials: true,
