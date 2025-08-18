@@ -18,11 +18,9 @@ const Home = () => {
   const { isAuthenticated } = useSelector((state) => state.user);
   return (
     <>
-      <section className="w-full ml-0 m-0 h-fit px-5 pt-20 lg:pl-[320px] flex flex-col min-h-screen py-4 justify-center">
+      <section className="w-full ml-0 m-0 h-fit px-5 pt-10 lg:pl-[320px] flex flex-col min-h-screen py-4 justify-center">
         <div>
-          <p className="text-[#DECCBE] font-bold text-xl mb-8">
-            Transparency Leads to Your Victory
-          </p>
+        {/* <div className="text-[12px] text-gray-400 ">Admin credentials: super@admin - password: 321</div> */}
           <h1
             className={`text-[#111] text-2xl font-bold mb-2 min-[480px]:text-4xl md:text-6xl xl:text-7xl 2xl:text-8xl`}
           >

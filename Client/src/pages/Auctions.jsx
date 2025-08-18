@@ -40,7 +40,7 @@ const Auctions = () => {
           {/* Page Heading */}
           <div className="mb-10">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-600">
-              🎯 Explore Auctions
+             Explore Auctions
             </h1>
             <p className="text-gray-500 mt-2 text-lg max-w-xl">
               Browse through our live and upcoming auctions. Place your bids and win the item!
@@ -48,7 +48,7 @@ const Auctions = () => {
           </div>
 
           {/* NEW: Search & Category Filters */}
-          <div className="sticky top-[70px] z-20 mb-12 p-4 bg-white/70 backdrop-blur-lg rounded-2xl shadow-lg border border-gray-200">
+          <div  className="top-[70px] z-20 mb-12 p-4 bg-white/70 backdrop-blur-lg rounded-2xl shadow-lg border border-gray-200">
             <div className="flex flex-col md:flex-row items-center gap-4">
               <input
                 type="text"
@@ -57,7 +57,10 @@ const Auctions = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full md:w-1/3 p-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 transition"
               />
-              <div className="flex-grow flex items-center gap-2 overflow-x-auto pb-2 -mb-2">
+              <div   style={{
+    scrollbarWidth: "none",      // Firefox
+    msOverflowStyle: "none"      // IE/Edge legacy
+  }} className="flex-grow flex items-center gap-2 overflow-x-auto pb-2 -mb-2">
                 {CATEGORIES.map(cat => (
                   <button
                     key={cat}
