@@ -4,7 +4,7 @@ import ErrorHandler from "../Middleware/error.js";
 import cloudinary from "cloudinary";
 import { generateToken } from "../utils/jwtToken.js";
 import { catchAsyncErrors } from "../Middleware/catchAsyncErrors.js";
-
+// userController
 export const register = catchAsyncErrors(async (req, res, next) => {
   if (!req.files || Object.keys(req.files).length === 0) {
     return next(new ErrorHandler("Profile image is required.", 400));
