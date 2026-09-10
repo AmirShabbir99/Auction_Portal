@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import User from "../Model/userModel.js";
 import ErrorHandler from "../Middleware/error.js";
 import cloudinary from "cloudinary";
